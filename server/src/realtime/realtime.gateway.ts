@@ -30,7 +30,8 @@ const wsValidationPipe = new ValidationPipe({
 
 /**
  * Gerbang WebSocket. Sengaja tipis: hanya menerjemahkan event socket ke
- * PresenceService dan menyiarkan hasilnya ke dashboard admin.
+ * PresenceService dan menyiarkan hasilnya. Modul lain mengirim pesan ke device
+ * lewat `sendToDevice`, tanpa perlu tahu soal Socket.IO.
  *
  * Ping/pong Socket.IO dipercepat agar device yang mati mendadak (kabel dicabut,
  * tab ditutup paksa) terdeteksi dalam kurang dari 15 detik.
@@ -85,6 +86,11 @@ export class RealtimeGateway implements OnGatewayConnection, OnGatewayDisconnect
       }
       throw error;
     }
+  }
+
+  /** Mengirim event ke semua koneksi milik satu device (lewat room-nya). */
+  sendToDevice(deviceId: string, event: ServerEvent, payload: object): void {
+    this.server.to(deviceRoom(deviceId)).emit(event, payload);
   }
 
   private publish(change: PresenceChange | null): void {
