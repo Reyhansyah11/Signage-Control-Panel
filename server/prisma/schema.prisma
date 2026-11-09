@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum DeviceStatus {
+  online
+  offline
+}
+
+enum ContentType {
+  image
+  video
+  text
+  url
+}
+
+model Device {
+  id       String         @id @default(uuid())
+  nama     String
+  lokasi   String
+  status   DeviceStatus   @default(offline)
+  lastSeen DateTime?      @map("last_seen")
+  playlist PlaylistItem[]
+
+  @@map("devices")
+}
+
+model Content {
+  id        String         @id @default(uuid())
+  judul     String
+  tipe      ContentType
+  payload   String         // teks, atau URL file di Supabase Storage
+  createdAt DateTime       @default(now()) @map("created_at")
+  playlist  PlaylistItem[]
+
+  @@map("contents")
+}
+
+// Bonus: playlist device-content
+model PlaylistItem {
+  id          String  @id @default(uuid())
+  deviceId    String  @map("device_id")
+  contentId   String  @map("content_id")
+  urutan      Int     @default(0)
+  durasiDetik Int     @default(10) @map("durasi_detik")
+
+  device  Device  @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  content Content @relation(fields: [contentId], references: [id], onDelete: Cascade)
+
+  @@unique([deviceId, contentId])
+  @@map("playlist_items")
+}
