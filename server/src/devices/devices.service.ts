@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Device } from '@prisma/client';
+import { Device, DeviceStatus } from '@prisma/client';
 import { CreateDeviceDto } from './dto/create-device.dto';
 import { UpdateDeviceDto } from './dto/update-device.dto';
 import { DevicesRepository } from './devices.repository';
@@ -34,5 +34,29 @@ export class DevicesService {
   async remove(id: string): Promise<void> {
     await this.findOne(id);
     await this.devicesRepository.delete(id);
+  }
+
+  /**
+   * Operasi status di bawah ini hanya dipanggil PresenceService. Sengaja tidak
+   * lewat REST: status adalah fakta koneksi, bukan data yang boleh diisi admin.
+   */
+  markOnline(id: string): Promise<Device> {
+    return this.devicesRepository.update(id, {
+      status: DeviceStatus.online,
+      lastSeen: new Date(),
+    });
+  }
+
+  /** `lastSeen` diisi saat putus, sehingga berarti "terakhir terlihat online". */
+  markOffline(id: string): Promise<Device> {
+    return this.devicesRepository.update(id, {
+      status: DeviceStatus.offline,
+      lastSeen: new Date(),
+    });
+  }
+
+  /** Dipanggil saat server start agar tidak ada status online "zombie". */
+  resetAllToOffline(): Promise<number> {
+    return this.devicesRepository.markAllOffline();
   }
 }

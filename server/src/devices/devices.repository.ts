@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Device, Prisma } from '@prisma/client';
+import { Device, DeviceStatus, Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 
 /**
@@ -28,5 +28,14 @@ export class DevicesRepository {
 
   async delete(id: string): Promise<void> {
     await this.prisma.device.delete({ where: { id } });
+  }
+
+  /** Mengembalikan jumlah device yang statusnya diubah dari online ke offline. */
+  async markAllOffline(): Promise<number> {
+    const { count } = await this.prisma.device.updateMany({
+      where: { status: DeviceStatus.online },
+      data: { status: DeviceStatus.offline },
+    });
+    return count;
   }
 }
