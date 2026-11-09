@@ -5,6 +5,7 @@ import { BrandMark } from './BrandMark'
 const NAV_ITEMS = [
   { to: '/', label: 'Ringkasan', end: true },
   { to: '/devices', label: 'Device', end: false },
+  { to: '/contents', label: 'Konten', end: false },
 ]
 
 export function AppLayout() {

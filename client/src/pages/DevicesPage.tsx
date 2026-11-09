@@ -1,28 +1,12 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Modal } from '../components/Modal'
 import { DeviceForm } from '../features/devices/DeviceForm'
+import { StatusBadge } from '../features/devices/StatusBadge'
 import { useDevices } from '../features/devices/useDevices'
 import type { DeviceInput } from '../features/devices/useDevices'
-import type { Device, DeviceStatus } from '../types/api'
-
-function formatLastSeen(value: string | null): string {
-  if (!value) return 'Belum pernah terhubung'
-  return new Date(value).toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' })
-}
-
-function StatusBadge({ status }: { status: DeviceStatus }) {
-  const online = status === 'online'
-  return (
-    <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${
-        online ? 'bg-emerald-50 text-emerald-700' : 'bg-slate-100 text-slate-600'
-      }`}
-    >
-      <span className={`size-2 rounded-full ${online ? 'bg-emerald-500' : 'bg-slate-400'}`} />
-      {online ? 'Online' : 'Offline'}
-    </span>
-  )
-}
+import { formatLastSeen } from '../lib/format'
+import type { Device } from '../types/api'
 
 export default function DevicesPage() {
   const { devices, error, connected, createDevice, updateDevice, deleteDevice } = useDevices()
@@ -107,6 +91,12 @@ export default function DevicesPage() {
                     </p>
                   </div>
                   <div className="flex gap-2">
+                    <Link
+                      to={`/devices/${device.id}`}
+                      className="rounded-lg bg-indigo-50 px-3 py-1.5 text-sm font-medium text-indigo-700 hover:bg-indigo-100"
+                    >
+                      Kelola
+                    </Link>
                     <button
                       type="button"
                       onClick={() => setEditing(device)}
