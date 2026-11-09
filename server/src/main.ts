@@ -3,10 +3,13 @@ import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+import { AdminAuthIoAdapter } from './auth/admin-auth.adapter';
+import { AuthService } from './auth/auth.service';
 
 /** Titik masuk aplikasi: menyiapkan prefix API, validasi global, CORS, dan Swagger. */
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
+  app.useWebSocketAdapter(new AdminAuthIoAdapter(app, app.get(AuthService)));
   const config = app.get(ConfigService);
 
   app.setGlobalPrefix('api');

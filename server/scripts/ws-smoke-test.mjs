@@ -12,7 +12,7 @@ if (!deviceId) {
   process.exit(1);
 }
 
-const admin = io(url, { auth: { role: 'admin' } });
+const admin = io(url, { auth: { role: 'admin', token: process.env.ADMIN_TOKEN } });
 admin.on('device:status', (payload) => console.log('[admin] device:status', payload));
 admin.on('connect', () => {
   console.log('[admin] terhubung');

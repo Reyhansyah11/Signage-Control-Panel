@@ -6,9 +6,11 @@ import { DevicesModule } from './devices/devices.module';
 import { PlaylistModule } from './playlist/playlist.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { RealtimeModule } from './realtime/realtime.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
+    AuthModule,
     ConfigModule.forRoot({ isGlobal: true }),
     PrismaModule,
     DevicesModule,
