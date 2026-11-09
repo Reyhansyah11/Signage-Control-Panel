@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
-body {
-  @apply bg-slate-50 text-slate-900 antialiased;
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+
+  button:not(:disabled) {
+    cursor: pointer;
+  }
 }
