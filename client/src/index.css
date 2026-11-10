@@ -9,3 +9,52 @@
     cursor: pointer;
   }
 }
+
+/* ---- Tema Signage Control Panel: hijau tua ---- */
+@theme {
+  --color-brand-50: #f1f8f4;
+  --color-brand-100: #dcefe4;
+  --color-brand-200: #b9dfca;
+  --color-brand-300: #8ac6a7;
+  --color-brand-400: #55a77f;
+  --color-brand-500: #2f8a62;
+  --color-brand-600: #1f6f4d;
+  --color-brand-700: #185a3f;
+  --color-brand-800: #134733;
+  --color-brand-900: #0f3829;
+  --color-brand-950: #072319;
+  --color-canvas: #f5f7f4;
+
+  --animate-fade-up: fade-up 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-fade-in: fade-in 0.3s ease-out both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+/* Pengguna yang meminta gerak dikurangi tidak mendapat animasi. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

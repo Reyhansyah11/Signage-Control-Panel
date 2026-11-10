@@ -35,7 +35,7 @@ export function DurationInput({ value, onChange, label, disabled = false }: Dura
           if (Number.isInteger(parsed) && parsed >= MIN_DURATION && parsed <= MAX_DURATION) onChange(parsed)
         }}
         onBlur={() => setText(null)}
-        className="w-20 rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-right text-sm outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 disabled:bg-slate-50"
+        className="w-20 rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-right text-sm outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 disabled:bg-slate-50"
       />
       <span aria-hidden="true">detik</span>
     </label>

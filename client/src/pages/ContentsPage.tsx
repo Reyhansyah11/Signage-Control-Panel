@@ -66,7 +66,7 @@ export default function ContentsPage() {
         <button
           type="button"
           onClick={() => setEditing('new')}
-          className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
         >
           Tambah konten
         </button>
@@ -86,7 +86,7 @@ export default function ContentsPage() {
             aria-pressed={filter === item.value}
             onClick={() => setFilter(item.value)}
             className={`rounded-full px-3 py-1 text-sm font-medium ${
-              filter === item.value ? 'bg-indigo-600 text-white' : 'bg-white text-slate-600 ring-1 ring-slate-200 hover:bg-slate-100'
+              filter === item.value ? 'bg-brand-600 text-white' : 'bg-white text-slate-600 ring-1 ring-slate-200 hover:bg-slate-100'
             }`}
           >
             {item.label}
@@ -109,7 +109,7 @@ export default function ContentsPage() {
         {visible && visible.length > 0 && (
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {visible.map((content) => (
-              <li key={content.id} className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <li key={content.id} className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
                 <div className="aspect-video overflow-hidden bg-slate-100">
                   <ContentPreview content={content} />
                 </div>

@@ -50,7 +50,7 @@ export default function DevicesPage() {
           <button
             type="button"
             onClick={() => setEditing('new')}
-            className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
           >
             Tambah device
           </button>
@@ -93,7 +93,7 @@ export default function DevicesPage() {
                   <div className="flex gap-2">
                     <Link
                       to={`/devices/${device.id}`}
-                      className="rounded-lg bg-indigo-50 px-3 py-1.5 text-sm font-medium text-indigo-700 hover:bg-indigo-100"
+                      className="rounded-lg bg-brand-50 px-3 py-1.5 text-sm font-medium text-brand-700 hover:bg-brand-100"
                     >
                       Kelola
                     </Link>

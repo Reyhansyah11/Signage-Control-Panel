@@ -2,7 +2,7 @@ export function BrandMark({ className = 'size-10' }: { className?: string }) {
   return (
     <span
       aria-hidden="true"
-      className={`inline-flex items-center justify-center rounded-xl bg-indigo-600 text-white ${className}`}
+      className={`inline-flex items-center justify-center rounded-xl bg-brand-600 text-white ${className}`}
     >
       <svg
         viewBox="0 0 24 24"

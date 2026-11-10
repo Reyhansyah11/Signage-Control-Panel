@@ -28,7 +28,7 @@ const LINK_TYPES: { value: LinkType; label: string }[] = [
 ]
 
 const inputClass =
-  'mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 disabled:bg-slate-50'
+  'mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 disabled:bg-slate-50'
 
 export function ContentForm({ content, onSubmit, onCancel }: ContentFormProps) {
   const editing = content !== null
@@ -149,7 +149,7 @@ export function ContentForm({ content, onSubmit, onCancel }: ContentFormProps) {
             onChange={handleFile}
             required
             disabled={saving}
-            className="mt-1 block w-full text-sm text-slate-600 file:mr-3 file:rounded-lg file:border-0 file:bg-indigo-50 file:px-3 file:py-2 file:text-sm file:font-medium file:text-indigo-700 hover:file:bg-indigo-100"
+            className="mt-1 block w-full text-sm text-slate-600 file:mr-3 file:rounded-lg file:border-0 file:bg-brand-50 file:px-3 file:py-2 file:text-sm file:font-medium file:text-brand-700 hover:file:bg-brand-100"
           />
         </label>
       ) : showTextarea ? (
@@ -191,7 +191,7 @@ export function ContentForm({ content, onSubmit, onCancel }: ContentFormProps) {
         <button
           type="submit"
           disabled={saving}
-          className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 disabled:opacity-60"
+          className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 disabled:opacity-60"
         >
           {saving ? (showFile ? 'Mengunggah...' : 'Menyimpan...') : editing ? 'Simpan' : 'Tambah konten'}
         </button>

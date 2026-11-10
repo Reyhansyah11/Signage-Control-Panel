@@ -1,6 +1,6 @@
 import type { DeviceStatus } from '../../types/api'
 
-/** Penanda status device. Teks selalu ada, jadi artinya tidak bergantung pada warna saja. */
+/** Penanda status device. Teks selalu ada, jadi artinya tidak bergantung pada warna; titik online berdenyut. */
 export function StatusBadge({ status }: { status: DeviceStatus }) {
   const online = status === 'online'
   return (
@@ -9,7 +9,10 @@ export function StatusBadge({ status }: { status: DeviceStatus }) {
         online ? 'bg-emerald-50 text-emerald-700' : 'bg-slate-100 text-slate-600'
       }`}
     >
-      <span className={`size-2 rounded-full ${online ? 'bg-emerald-500' : 'bg-slate-400'}`} />
+      <span className="relative flex size-2">
+        {online && <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />}
+        <span className={`relative inline-flex size-2 rounded-full ${online ? 'bg-emerald-500' : 'bg-slate-400'}`} />
+      </span>
       {online ? 'Online' : 'Offline'}
     </span>
   )

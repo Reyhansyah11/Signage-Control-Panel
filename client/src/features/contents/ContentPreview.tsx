@@ -23,7 +23,7 @@ export function ContentPreview({ content }: { content: Content }) {
             href={content.payload}
             target="_blank"
             rel="noreferrer"
-            className="text-xs text-indigo-600 hover:underline"
+            className="text-xs text-brand-600 hover:underline"
           >
             Buka tautan
           </a>

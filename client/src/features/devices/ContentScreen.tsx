@@ -5,7 +5,7 @@ export function ContentScreen({ content }: { content: Content }) {
   switch (content.tipe) {
     case 'text':
       return (
-        <div className="flex size-full items-center justify-center bg-linear-to-br from-indigo-950 via-slate-900 to-slate-950 p-10 sm:p-16">
+        <div className="flex size-full items-center justify-center bg-linear-to-br from-brand-950 via-slate-900 to-slate-950 p-10 sm:p-16">
           <p className="max-w-5xl text-center text-4xl leading-tight font-bold whitespace-pre-line sm:text-6xl">
             {content.payload}
           </p>

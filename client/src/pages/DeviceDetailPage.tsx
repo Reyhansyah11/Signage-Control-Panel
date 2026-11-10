@@ -54,7 +54,7 @@ export default function DeviceDetailPage() {
   if (devices !== null && !device) {
     return (
       <section>
-        <Link to="/devices" className="text-sm text-indigo-600 hover:underline">
+        <Link to="/devices" className="text-sm text-brand-600 hover:underline">
           Kembali ke daftar device
         </Link>
         <div className="mt-6 rounded-2xl border border-dashed border-slate-300 bg-white p-10 text-center">
@@ -67,7 +67,7 @@ export default function DeviceDetailPage() {
 
   return (
     <section>
-      <Link to="/devices" className="text-sm text-indigo-600 hover:underline">
+      <Link to="/devices" className="text-sm text-brand-600 hover:underline">
         Kembali ke daftar device
       </Link>
 
@@ -79,7 +79,7 @@ export default function DeviceDetailPage() {
             href={`/device/${deviceId}`}
             target="_blank"
             rel="noreferrer"
-            className="mt-2 inline-block text-sm text-indigo-600 hover:underline"
+            className="mt-2 inline-block text-sm text-brand-600 hover:underline"
           >
             Simulasikan layar device (untuk pengujian)
           </a>
@@ -108,7 +108,7 @@ export default function DeviceDetailPage() {
               type="button"
               onClick={() => void playlist.save()}
               disabled={!playlist.dirty || playlist.saving}
-              className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {playlist.saving ? 'Menyimpan...' : 'Simpan playlist'}
             </button>
@@ -199,7 +199,7 @@ export default function DeviceDetailPage() {
                     setPushDuration(parsed)
                   }
                 }}
-                className="w-20 rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-right text-sm outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20"
+                className="w-20 rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-right text-sm outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20"
               />
               detik
             </label>
@@ -226,7 +226,7 @@ export default function DeviceDetailPage() {
           {contents?.length === 0 && (
             <div className="mt-4 rounded-xl border border-dashed border-slate-300 p-6 text-center">
               <p className="font-medium">Belum ada konten</p>
-              <Link to="/contents" className="mt-1 inline-block text-sm text-indigo-600 hover:underline">
+              <Link to="/contents" className="mt-1 inline-block text-sm text-brand-600 hover:underline">
                 Tambah konten di menu Konten
               </Link>
             </div>
@@ -255,7 +255,7 @@ export default function DeviceDetailPage() {
                         type="button"
                         onClick={() => void handlePush(content)}
                         disabled={!online || pushing !== null}
-                        className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm font-semibold text-white hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-40"
+                        className="rounded-lg bg-amber-400 px-3 py-1.5 text-sm font-semibold text-brand-950 hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-40"
                       >
                         {pushing === content.id ? 'Mengirim...' : 'Push'}
                       </button>

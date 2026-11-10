@@ -31,7 +31,7 @@ export function Modal({ open, title, onClose, children }: ModalProps) {
         // Klik pada backdrop (bukan isi dialog) menutup dialog.
         if (event.target === ref.current) onClose()
       }}
-      className="m-auto w-full max-w-md rounded-2xl border border-slate-200 bg-white p-0 shadow-xl backdrop:bg-slate-900/40"
+      className="m-auto w-full max-w-md rounded-2xl border border-slate-200 bg-white p-0 shadow-xl backdrop:bg-brand-950/50 backdrop:backdrop-blur-sm open:animate-fade-up"
     >
       {open && (
         <div className="p-6">
