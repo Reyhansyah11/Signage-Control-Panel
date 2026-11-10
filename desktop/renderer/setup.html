@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'" />
+    <title>Pengaturan device</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Pengaturan device</h1>
+      <p class="lead">Diisi sekali saat memasang pemutar. Pengaturan tersimpan di komputer ini.</p>
+      <form id="form" novalidate>
+        <p id="error" class="error" role="alert" hidden></p>
+        <label>
+          Alamat aplikasi panel
+          <input id="appUrl" type="text" value="http://localhost:5173" autocomplete="off" required />
+          <span class="hint">Alamat tempat aplikasi web dijalankan.</span>
+        </label>
+        <label>
+          ID device
+          <input id="deviceId" type="text" placeholder="95de274d-f1ce-48eb-ab81-9a18382eb36b" autocomplete="off" spellcheck="false" required />
+          <span class="hint">Salin dari halaman detail device di dashboard.</span>
+        </label>
+        <label class="check">
+          <input id="autoStart" type="checkbox" />
+          Jalankan otomatis saat komputer menyala
+        </label>
+        <div class="actions">
+          <button id="cancel" type="button" hidden>Batal</button>
+          <button id="submit" type="submit" class="primary">Simpan dan mulai</button>
+        </div>
+      </form>
+    </main>
+    <script src="setup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "signage-device-player",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Aplikasi desktop pemutar device untuk Signage Control Panel",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && electron .",
+    "start:windowed": "npm run build && electron . --windowed",
+    "test": "npm run build && node --test dist/config.test.js"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "electron": "^45.2.3",
+    "typescript": "^7.0.2"
+  }
+}
