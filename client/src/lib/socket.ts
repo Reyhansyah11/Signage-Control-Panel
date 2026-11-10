@@ -14,3 +14,11 @@ export function createAdminSocket(): Socket {
   // Tanpa API_URL, socket memakai origin halaman (diteruskan proxy Vite saat dev).
   return API_URL ? io(API_URL, options) : io(options)
 }
+
+/**
+ * Membuat koneksi Socket.IO sebagai device. Device tidak memakai JWT: ia hanya mendaftar
+ * dengan deviceId lewat event `device:register` setelah tersambung.
+ */
+export function createDeviceSocket(): Socket {
+  return API_URL ? io(API_URL) : io()
+}

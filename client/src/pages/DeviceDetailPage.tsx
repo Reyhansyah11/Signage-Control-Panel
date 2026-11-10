@@ -75,6 +75,14 @@ export default function DeviceDetailPage() {
         <div>
           <h1 className="text-2xl font-bold tracking-tight">{device?.nama ?? 'Memuat...'}</h1>
           <p className="mt-1 text-sm text-slate-500">{device?.lokasi}</p>
+          <a
+            href={`/device/${deviceId}`}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-2 inline-block text-sm text-indigo-600 hover:underline"
+          >
+            Buka layar device
+          </a>
         </div>
         {device && (
           <div className="text-right" aria-live="polite">

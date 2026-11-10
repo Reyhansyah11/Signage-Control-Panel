@@ -5,12 +5,14 @@ import DashboardPage from './pages/DashboardPage'
 import ContentsPage from './pages/ContentsPage'
 import DeviceDetailPage from './pages/DeviceDetailPage'
 import DevicesPage from './pages/DevicesPage'
+import DevicePage from './pages/DevicePage'
 import LoginPage from './pages/LoginPage'
 
 export default function App() {
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/device/:deviceId" element={<DevicePage />} />
       <Route element={<ProtectedRoute />}>
         <Route element={<AppLayout />}>
           <Route index element={<DashboardPage />} />
