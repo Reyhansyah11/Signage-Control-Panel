@@ -81,6 +81,9 @@ export default function DevicesPage() {
               <li key={device.id} className="flex flex-wrap items-center justify-between gap-3 px-5 py-4">
                 <div className="min-w-0">
                   <p className="truncate font-medium">{device.nama}</p>
+                  <p className="mt-1 truncate font-mono text-xs text-slate-400">
+                    ID: {device.id}
+                  </p>
                   <p className="truncate text-sm text-slate-500">{device.lokasi}</p>
                 </div>
                 <div className="flex items-center gap-4">
